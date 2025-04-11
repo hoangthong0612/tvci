@@ -9,7 +9,8 @@ class Category extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title', 'parentId', 'slug'];
+    protected $guarded = []; // Cho phép fill tất cả các trường
+
     //
     protected $table = 'category';
     public function parent()
@@ -26,7 +27,7 @@ class Category extends Model
     // Quan hệ: nhiều bài viết
     public function posts()
     {
-        return $this->belongsToMany(Category::class, 'post_category', 'postId', 'categoryId');
+        return $this->belongsToMany(Category::class, 'post_category', 'categoryId', 'postId');
     }
 
     // Hàm đệ quy lấy tất cả ID con (kể cả chính nó)

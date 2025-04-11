@@ -9,14 +9,12 @@ class Tag extends Model
 {
     //
     use Sluggable;
-    protected $fillable = [
-        'title',
-        // thêm các cột khác nếu có
-    ];
+    protected $guarded = []; // Cho phép fill tất cả các trường
+
     protected $table = 'tag';
     public function posts()
     {
-        return $this->belongsToMany(Category::class, 'post_tag', 'postId', 'tagId');
+        return $this->belongsToMany(Category::class, 'post_tag', 'tagId', 'postId');
     }
     public function sluggable(): array
     {

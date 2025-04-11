@@ -12,15 +12,15 @@ class Post extends Model
 
     protected $table = 'post';
     use Sluggable;
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $guarded = [];
     public function categories()
     {
-        return $this->belongsToMany(Post::class, 'post_category', 'categoryId', 'postId');
+        return $this->belongsToMany(Category::class, 'post_category', 'postId', 'categoryId');
     }
 
     public function tags()
     {
-        return $this->belongsToMany(Post::class, 'post_tag', 'tagId', 'postId');
+        return $this->belongsToMany(Tag::class, 'post_tag', 'postId', 'tagId');
     }
 
 

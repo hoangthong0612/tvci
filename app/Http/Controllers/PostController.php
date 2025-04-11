@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,22 +18,69 @@ class PostController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        return view('posts.create', compact('categories'));
+        $categories = Category::whereNull('parentId')->with('children')->get();
+        $tags = Tag::all();
+        // Dùng hàm đệ quy để build danh sách cho select
+        $categoryOptions = $this->buildCategoryOptions($categories);
+        return view('admin.posts.create', compact('categoryOptions', 'tags'));
     }
+
+
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        if ($request->tags) {
+            foreach ($request->tags as $tagName) {
+                $tagName = trim($tagName); // Xử lý khoảng trắng thừa
+                if ($tagName === '')
+                    continue;
+
+                // Tạo tag nếu chưa có
+                $tag = Tag::firstOrCreate(
+                    ['title' => $tagName],
+                );
+
+                $tagIds[] = $tag->id;
+            }
+        }
+
+
+
+
+
+        $request->validate([
             'title' => 'required|string',
             'content' => 'nullable|string',
             'category_ids' => 'array',
         ]);
 
-        $post = Post::create($data);
-        $post->categories()->sync($data['category_ids'] ?? []);
+        $post = Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'summary' => $request->summary,
+            'authorId' => Auth::user()->id,
+            'published' => $request->has('published') ? 1 : 0,
+        ]);
 
-        return redirect()->route('posts.index')->with('success', 'Bài viết đã được tạo.');
+        if ($request->hasFile('thumbnail')) {
+            $post->thumbnail = $this->uploadThumbnail($request->file('thumbnail'));
+        }
+
+
+        $post->categories()->sync($request->categories);
+
+
+        // $post = Post::create($data);
+        $post->categories()->sync($data['category_ids'] ?? []);
+        if (!empty($tagIds)) {
+            $post->tags()->sync($tagIds);
+        }
+        if (!empty($request->categories)) {
+            $post->categories()->sync($request->categories);
+
+        }
+        $post->save();
+        return redirect()->route('admin.posts.index')->with('success', 'Thêm bài viết thành công.');
     }
 
     public function show(Post $post)
@@ -42,22 +91,67 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        $categories = Category::all();
-        return view('posts.edit', compact('post', 'categories'));
+        $categories = Category::whereNull('parentId')->with('children')->get();
+        $tags = Tag::all();
+        // Dùng hàm đệ quy để build danh sách cho select
+        $categoryOptions = $this->buildCategoryOptions($categories);
+        return view('admin.posts.edit', compact('categoryOptions', 'post', 'tags'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
-        $data = $request->validate([
+        $post = Post::findOrFail($id);
+        if ($request->tags) {
+            foreach ($request->tags as $tagName) {
+                $tagName = trim($tagName); // Xử lý khoảng trắng thừa
+                if ($tagName === '')
+                    continue;
+
+                // Tạo tag nếu chưa có
+                $tag = Tag::firstOrCreate(
+                    ['title' => $tagName],
+                );
+
+                $tagIds[] = $tag->id;
+            }
+        }
+
+
+
+
+
+        $request->validate([
             'title' => 'required|string',
             'content' => 'nullable|string',
             'category_ids' => 'array',
         ]);
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'summary' => $request->summary,
+            'authorId' => Auth::user()->id,
+            'published' => $request->has('published') ? 1 : 0,
+        ]);
 
-        $post->update($data);
+        if ($request->hasFile('thumbnail')) {
+            $post->thumbnail = $this->uploadThumbnail($request->file('thumbnail'));
+        }
+
+
+        $post->categories()->sync($request->categories);
+
+
+        // $post = Post::create($data);
         $post->categories()->sync($data['category_ids'] ?? []);
+        if (!empty($tagIds)) {
+            $post->tags()->sync($tagIds);
+        }
+        if (!empty($request->categories)) {
+            $post->categories()->sync($request->categories);
 
-        return redirect()->route('posts.index')->with('success', 'Bài viết đã được cập nhật.');
+        }
+        $post->save();
+        return redirect()->route('admin.posts.index')->with('success', 'Chỉnh sửa bài viết thành công.');
     }
 
     public function destroy(Post $post)
@@ -66,5 +160,31 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Bài viết đã được xóa.');
+    }
+
+    public function uploadThumbnail($image, $old = null)
+    {
+
+        $path = imagePath()['blogs']['path'];
+        $thumb = imagePath()['blogs']['thumb'];
+        $thumbnail = uploadImage($image, $path, null, $old, null);
+
+        return $thumbnail;
+    }
+
+    private function buildCategoryOptions($categories, $prefix = '')
+    {
+        $result = [];
+
+        foreach ($categories as $category) {
+            $result[$category->id] = $prefix . $category->title;
+
+            if ($category->children->isNotEmpty()) {
+                $childOptions = $this->buildCategoryOptions($category->children, $prefix . '-- ');
+                $result = $result + $childOptions; // giữ key là ID
+            }
+        }
+
+        return $result;
     }
 }

@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item  {{ menuActive('admin') }}">
         <a class="nav-link" href="/admin">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -25,9 +25,14 @@
     <div class="sidebar-heading">
         Interface
     </div>
+    <li class="nav-item {{ menuActive('admin.posts*') }}">
+        <a class="nav-link" href="{{ route('admin.posts.index') }}">
+            <i class="fas fa-rss"></i>
+            <span>Bài viết</span></a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -40,10 +45,10 @@
                 <a class="collapse-item" href="cards.html">Cards</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
@@ -58,7 +63,7 @@
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -103,13 +108,13 @@
             <span>Tables</span></a>
     </li> --}}
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.categories.index')}}">
+    <li class="nav-item {{ menuActive('admin.categories*') }}">
+        <a class="nav-link" href="{{ route('admin.categories.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Danh mục</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.tags.index')}}">
+    <li class="nav-item {{ menuActive('admin.tags*') }}">
+        <a class="nav-link" href="{{ route('admin.tags.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Thẻ</span></a>
     </li>

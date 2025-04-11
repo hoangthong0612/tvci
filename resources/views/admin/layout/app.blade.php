@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ @asset('/assets/be/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ @asset('/assets/be/css/custom.css') }}" rel="stylesheet">
+    @stack('head')
 
 </head>
 
@@ -110,7 +111,7 @@
     <!-- Page level custom scripts -->
     <script src="{{@asset('assets/be/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{@asset('assets/be/js/demo/chart-pie-demo.js')}}"></script>
-
+    @stack('script')
 </body>
 
 </html>
