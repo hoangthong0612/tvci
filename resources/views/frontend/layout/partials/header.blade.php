@@ -2,10 +2,13 @@
     <div
         class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto me-xl-0 text-dark">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 class="sitename">iLanding</h1>
+            {{-- <h1 class="sitename">iLanding</h1> --}}
+            <img src="{{ app('settings')->logo ? '/' . imagePath()['logoIcon']['path'] . '/' . app('settings')->logo : getImage(app('settings')->logo) }}"
+                alt="">
+           Đảm bảo sự tin cậy, tận tình, hài lòng!
         </a>
 
         <nav id="navmenu" class="navmenu">

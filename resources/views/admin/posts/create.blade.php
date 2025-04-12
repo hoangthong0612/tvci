@@ -50,7 +50,8 @@
         <div class="col-12 col-lg-4 bg-white p-3">
             <div class="d-flex justify-content-between">
                 <div class="custom-control custom-switch  ">
-                    <input type="checkbox" class="custom-control-input" id="published" name="published" value="1" checked>
+                    <input type="checkbox" class="custom-control-input" id="published" name="published" value="1"
+                        checked>
                     <label class="custom-control-label" for="published">Công khai</label>
                 </div>
                 <button class="btn btn-primary">Lưu</button>
@@ -66,7 +67,7 @@
                             <div class="thumb">
                                 <div class="avatar-preview">
                                     <div class="profilePicPreview"
-                                        style="background-image: url('https://script.viserlab.com/visermart/placeholder/image/520x600')">
+                                        style="background-image: url({{ asset('assets/images/default.jpg') }})">
                                     </div>
                                 </div>
                                 <div class="avatar-edit">
@@ -93,7 +94,7 @@
             <div class="form-group">
                 <label for="tags">Thẻ</label>
                 <select class="js-example-basic-single form-control" id="tags" name="tags[]" multiple="multiple">
-                    
+
                 </select>
             </div>
         </div>

@@ -27,7 +27,7 @@
             @foreach ($posts as $post)
                 <tr>
                     <td>
-                        <img src="/{{ $post->thumbnail ? imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}"
+                        <img src="{{ $post->thumbnail ? '/' . imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}"
                             alt="" style="height: 80px;">
                     </td>
                     <td>{{ $post->title }}</td>

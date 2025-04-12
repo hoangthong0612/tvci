@@ -23,12 +23,22 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Nội dung
     </div>
     <li class="nav-item {{ menuActive('admin.posts*') }}">
         <a class="nav-link" href="{{ route('admin.posts.index') }}">
             <i class="fas fa-rss"></i>
             <span>Bài viết</span></a>
+    </li>
+    <li class="nav-item {{ menuActive('admin.categories*') }}">
+        <a class="nav-link" href="{{ route('admin.categories.index') }}">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Danh mục</span></a>
+    </li>
+    <li class="nav-item {{ menuActive('admin.tags*') }}">
+        <a class="nav-link" href="{{ route('admin.tags.index') }}">
+            <i class="fas fa-tags"></i>
+            <span>Thẻ</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -107,17 +117,18 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li> --}}
+    <li class="nav-item {{ menuActive('admin.menu*') }}">
+        <a class="nav-link" href="{{ route('admin.menu.index') }}">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span></a>
+    </li>
 
-    <li class="nav-item {{ menuActive('admin.categories*') }}">
-        <a class="nav-link" href="{{ route('admin.categories.index') }}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Danh mục</span></a>
+    <li class="nav-item {{ menuActive('admin.setting*') }}">
+        <a class="nav-link" href="{{ route('admin.setting.index') }}">
+            <i class="fas fa-cog"></i>
+            <span>Cài đặt</span></a>
     </li>
-    <li class="nav-item {{ menuActive('admin.tags*') }}">
-        <a class="nav-link" href="{{ route('admin.tags.index') }}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Thẻ</span></a>
-    </li>
+
 
 
     <!-- Divider -->

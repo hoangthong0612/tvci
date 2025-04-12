@@ -66,7 +66,7 @@
                             <div class="thumb">
                                 <div class="avatar-preview">
                                     <div class="profilePicPreview"
-                                        style="background-image: url('/{{ $post->thumbnail ? imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}')">
+                                        style="background-image: url('{{ $post->thumbnail ? './' . imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}')">
                                     </div>
                                 </div>
                                 <div class="avatar-edit">

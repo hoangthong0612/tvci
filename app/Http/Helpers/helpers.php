@@ -72,6 +72,7 @@ function imagePath()
     ];
     $data['favicon'] = [
         'size' => '128x128',
+        'path' => 'assets/images/favicon',
     ];
     $data['extensions'] = [
         'path' => 'assets/images/extensions',
@@ -113,28 +114,41 @@ function uploadImage($file, $location, $size = null, $old = null, $thumb = null)
     if (!$path)
         throw new Exception('File could not been created.');
 
+    // Tính hash nội dung ảnh
+    $hash = md5_file($file->getRealPath());
+    $extension = $file->getClientOriginalExtension();
+    $filename = $hash . '.' . $extension;
+
+    $fullPath = $location . '/' . $filename;
+
+    // Nếu ảnh đã tồn tại -> trả về tên file
+    if (file_exists($fullPath)) {
+        return $filename;
+    }
+
+    // Nếu có ảnh cũ thì xóa
     if ($old) {
         removeFile(asset('content') . '/' . $location . '/' . $old);
         removeFile(storage_path() . '/' . $location . '/thumb_' . $old);
     }
-    $filename = uniqid() . time() . '.' . $file->getClientOriginalExtension();
-    // $image = Image::make($file);
+
+    // Resize nếu có
     $image = $manager->read($file);
     if ($size) {
         $size = explode('x', strtolower($size));
-        // $image->resize($size[0], $size[1]);
         $image = $image->scale(width: $size[0], height: $size[1]);
-
     }
-    // dd(public_path('content/') . $location . '/' . $filename);
-    $image->save($location . '/' . $filename);
 
+    // Lưu ảnh chính
+    $image->save($fullPath);
+
+    // Nếu có yêu cầu tạo ảnh thumbnail
     if ($thumb) {
         $thumb = explode('x', $thumb);
-        $image = $manager->read($file)->scale(width: $thumb[0], height: $thumb[1])->save($location . '/thumb_' . $filename);
-        // Image::make($file)->resize($thumb[0], $thumb[1])->save($location . '/thumb_' . $filename);
+        $manager->read($file)
+            ->scale(width: $thumb[0], height: $thumb[1])
+            ->save($location . '/thumb_' . $filename);
     }
-
 
     return $filename;
 }
@@ -163,7 +177,7 @@ function getImage($image, $size = null)
         return 123123123;
         // return route('placeholder.image', $size);
     }
-    return asset('assets/images/default.png');
+    return asset('assets/images/default.jpg');
 }
 
 function get_datetime_vn($datetime)

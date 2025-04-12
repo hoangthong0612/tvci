@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Providers;
+use App\Models\GeneralSetting;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        $settings = GeneralSetting::first();
+        App::instance('settings', $settings);
         Schema::defaultStringLength(191);
     }
 }
