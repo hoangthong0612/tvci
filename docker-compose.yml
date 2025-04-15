@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  app1:
+  app:
     build:
       args:
         user: thond
