@@ -6,7 +6,7 @@ services:
         user: thond
         uid: 2010
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile1
     image: laravel-app
     container_name: app
     restart: unless-stopped
