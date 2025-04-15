@@ -20,6 +20,24 @@ class CategoryHelper
     }
 }
 
+class MenuHelper
+{
+    public static function renderMenuOptions($menus, $prefix = '', $selectedId = null)
+    {
+        $html = '';
+        foreach ($menus as $menu) {
+            $selected = $selectedId == $menu->id ? 'selected' : '';
+            $html .= "<option value='{$menu->id}' {$selected}>{$prefix}{$menu->name}</option>";
+
+            if ($menu->children && $menu->children->count()) {
+                $html .= self::renderMenuOptions($menu->children, $prefix . '— ', $selectedId);
+            }
+        }
+
+        return $html;
+    }
+}
+
 function menuActive($routeName, $type = null)
 {
 

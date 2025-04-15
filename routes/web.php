@@ -12,6 +12,7 @@ use App\Http\Controllers\MenuController;
 //     return view('frontend.index');
 // });
 Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('index');
+Route::get('/bai-viet', [\App\Http\Controllers\PageController::class, 'blog'])->name('blog');
 Route::get('/bai-viet/{slug}', [\App\Http\Controllers\PageController::class, 'blogDetail'])->name('blogDetail');
 
 

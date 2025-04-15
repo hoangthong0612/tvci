@@ -11,7 +11,7 @@
            Đảm bảo sự tin cậy, tận tình, hài lòng!
         </a>
 
-        <nav id="navmenu" class="navmenu">
+        {{-- <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="#hero" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -40,9 +40,17 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav> --}}
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                @foreach (app('menus') as $menu)
+                    @include('frontend.layout.partials.menu-item', ['menu' => $menu])
+                @endforeach
+            </ul>
         </nav>
 
-        <a class="btn-getstarted" href="index.html#about">Get Started</a>
+        <a class="btn-getstarted" href="index.html#about">Liên hệ</a>
 
     </div>
 </header>

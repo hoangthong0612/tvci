@@ -12,7 +12,16 @@ class PageController extends Controller
 
     public function index()
     {
+       
+
         return view('frontend.index');
+    }
+
+    public function blog()
+    {
+       
+        $posts = Post::with('categories')->paginate(1);
+        return view('frontend.blog.index', compact('posts'));
     }
 
     public function blogDetail(string $slug)

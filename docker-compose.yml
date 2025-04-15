@@ -1,0 +1,47 @@
+version: '3.2'
+services:
+  app:
+    build:
+      args:
+        user: thond
+        uid: 2010
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-app
+    container_name: app
+    restart: unless-stopped
+    working_dir: /var/www/html/
+    volumes:
+      - ./:/var/www/html/
+    networks:
+      - photos
+  nginx:
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    ports:
+      - 8008:80
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    networks:
+      - photos
+  db:
+    image: mysql
+    container_name: dh_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: 123123
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123123
+    ports:
+      - "9906:3306"
+    volumes:
+      - ./database/tvci.sql:/docker-entrypoint-initdb.d/dump.sql
+    networks:
+      - photos
+
+#Docker Networks
+networks:
+  photos:
+    driver: bridge

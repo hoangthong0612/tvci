@@ -16,7 +16,6 @@
         </div>
     </div><!-- End Page Title -->
 
-    <!-- Service Details Section -->
     <section id="service-details" class="service-details section">
 
         <div class="container">
