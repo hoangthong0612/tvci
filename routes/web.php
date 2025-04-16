@@ -13,6 +13,7 @@ use App\Http\Controllers\MenuController;
 // });
 Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('index');
 Route::get('/bai-viet', [\App\Http\Controllers\PageController::class, 'blog'])->name('blog');
+Route::get('/danh-muc/{slug}', [\App\Http\Controllers\PageController::class, 'category'])->name('category');
 Route::get('/bai-viet/{slug}', [\App\Http\Controllers\PageController::class, 'blogDetail'])->name('blogDetail');
 
 

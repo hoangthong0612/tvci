@@ -4,13 +4,16 @@
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="index.html" class="logo d-flex align-items-center">
-                    <span class="sitename">iLanding</span>
+                    <span class="sitename">TVCI</span>
                 </a>
                 <div class="footer-contact pt-3">
-                    <p>A108 Adam Street</p>
-                    <p>New York, NY 535022</p>
-                    <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                    <p>TRUNG TÂM THỬ NGHIỆM - KIỂM ĐỊNH CÔNG NGHIỆP</p>
+                    <p>565 Đường Nguyễn Trãi, Quận Thanh Xuân, Hà Nội</p>
+                    <p>Số 3 ngõ 76 Trung Văn, Nam Từ Liêm, Hà Nội</p>
+                    <p>7 Liên Khu 4-5, Phường Bình Hưng Hòa B, Quận Bình Tân, TP.HCM</p>
+                    <p class="mt-3"><strong>Hotline:</strong> <span>0961.60.64.66</span></p>
+                    <p><strong>ĐT:</strong> <span>(+84-4) 3552 5553 / 3854 2142 / 3552 7514</span></p>
+                    <p><strong>Fax:</strong> <span>(+84-4) 3854 3154 / 3854 2142</span></p>
                 </div>
                 <div class="social-links d-flex mt-4">
                     <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -68,14 +71,15 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iLanding</strong> <span>All Rights
-                Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename"> Viện cơ khí năng lượng và mỏ- vinacomin</strong>
+            </p>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you've purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            <span>All Rights
+                Reserved</span>
         </div>
     </div>
 

@@ -14,7 +14,7 @@ class Tag extends Model
     protected $table = 'tag';
     public function posts()
     {
-        return $this->belongsToMany(Category::class, 'post_tag', 'tagId', 'postId');
+        return $this->belongsToMany(Post::class, 'post_tag', 'tagId', 'postId');
     }
     public function sluggable(): array
     {

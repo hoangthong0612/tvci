@@ -17,7 +17,7 @@
                         </div>
 
                         <h1 class="mb-4">
-                            Chào mừng 
+                            Chào mừng
                             đến với TVCI <br>
                             <span class="accent-text">Trung tâm Thử nghiệm và Kiểm định Công nghiệp</span>
                         </h1>
@@ -115,25 +115,26 @@
             <div class="row gy-4 align-items-center justify-content-between">
 
                 <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-                    <span class="about-meta">MORE ABOUT US</span>
-                    <h2 class="about-title">Voluptas enim suscipit temporibus</h2>
-                    <p class="about-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <span class="about-meta">VỀ CHÚNG TÔI</span>
+                    <h2 class="about-title">Chuyên gia trong lĩnh vực thử nghiệm & kiểm định công nghiệp</h2>
+                    <p class="about-description">Chúng tôi cung cấp các dịch vụ thử nghiệm và kiểm định chất lượng hàng đầu,
+                        đảm bảo sản phẩm và quy trình của bạn tuân thủ các tiêu chuẩn kỹ thuật và quy định nghiêm ngặt. Với
+                        đội ngũ kỹ sư nhiều năm kinh nghiệm và hệ thống thiết bị hiện đại, chúng tôi cam kết mang lại sự
+                        chính xác, minh bạch và đáng tin cậy.</p>
 
                     <div class="row feature-list-wrapper">
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Lorem ipsum dolor sit amet</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Consectetur adipiscing elit</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Sed do eiusmod tempor</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Kiểm định chất lượng sản phẩm công nghiệp</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Đánh giá sự phù hợp theo tiêu chuẩn quốc tế</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Phân tích và thử nghiệm vật liệu</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Incididunt ut labore et</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Dolore magna aliqua</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Ut enim ad minim veniam</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Đo lường – hiệu chuẩn thiết bị</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Kiểm tra an toàn hệ thống kỹ thuật</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Tư vấn – hỗ trợ kỹ thuật chuyên sâu</li>
                             </ul>
                         </div>
                     </div>
@@ -171,8 +172,8 @@
                                 class="img-fluid small-image rounded-4">
                         </div>
                         <div class="experience-badge floating">
-                            <h3>15+ <span>Years</span></h3>
-                            <p>Of experience in business service</p>
+                            <h3>15+ <span>năm</span></h3>
+                            <p>Trong lĩnh vực thử nghiệm và kiểm định</p>
                         </div>
                     </div>
                 </div>

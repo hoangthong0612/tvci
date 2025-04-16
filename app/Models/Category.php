@@ -27,7 +27,7 @@ class Category extends Model
     // Quan hệ: nhiều bài viết
     public function posts()
     {
-        return $this->belongsToMany(Category::class, 'post_category', 'categoryId', 'postId');
+        return $this->belongsToMany(Post::class, 'post_category', 'categoryId', 'postId');
     }
 
     // Hàm đệ quy lấy tất cả ID con (kể cả chính nó)

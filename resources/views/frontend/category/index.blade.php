@@ -1,13 +1,13 @@
 @extends('frontend.layout.app')
 @push('head-title')
-    Tin tức - sự kiện
+    {{ $category->title }}
 @endpush
 @section('content')
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/blogs/blog-3/assets/css/blog-3.css">
     <!-- Page Title -->
     <div class="page-title light-background">
         <div class="container">
-            <h1>Tin tức - sự kiện</h1>
+            <h1>{{ $category->title }}</h1>
             <nav class="breadcrumbs">
                 <ol>
                     <li><a href="{{ route('index') }}">Trang chủ</a></li>

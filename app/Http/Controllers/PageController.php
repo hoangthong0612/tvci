@@ -21,9 +21,17 @@ class PageController extends Controller
     public function blog()
     {
 
-        $posts = Post::with('categories')->paginate(10);
+        $posts = Post::where('published', true)->with('categories')->paginate(10);
 
         return view('frontend.blog.index', compact('posts', ));
+    }
+    public function category(string $slug)
+    {
+        // Post::where('slug', $slug)->firstOrFail();
+        // $posts = Post::with('categories')->paginate(10);
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $posts = $category->posts()->paginate(10); // 10 bài mỗi trang
+        return view('frontend.category.index', compact('posts', 'category'));
     }
 
     public function blogDetail(string $slug)
