@@ -27,13 +27,16 @@
                         <div class="service-box ">
                             <h4>Danh mục</h4>
                             <div class="services-list">
-                                <a href="#" class="active"><i class="bi bi-arrow-right-circle"></i><span>Web
+                                {{-- <a href="#" class="active"><i class="bi bi-arrow-right-circle"></i><span>Web
                                         Design</span></a>
                                 <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Web Design</span></a>
                                 <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Product
                                         Management</span></a>
                                 <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Graphic Design</span></a>
-                                <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Marketing</span></a>
+                                <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Marketing</span></a> --}}
+                                @foreach ($categories as $cat)
+                                    <a href="#"><i class="bi bi-arrow-right-circle"></i><span>{{$cat->title}}</span></a>
+                                @endforeach
                             </div>
                         </div><!-- End Services List -->
 

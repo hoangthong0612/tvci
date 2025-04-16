@@ -18,43 +18,43 @@
     </div><!-- End Page Title -->
     <style>
         .tree ul {
-      list-style-type: none;
-      position: relative;
-      padding-left: 1.2rem;
-    }
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.2rem;
+        }
 
-    .tree li {
-      margin: 0.5rem 0;
-      position: relative;
-    }
+        .tree li {
+            margin: 0.5rem 0;
+            position: relative;
+        }
 
-    .tree li::before {
-      content: '';
-      position: absolute;
-      top: 0.6rem;
-      left: -1rem;
-      width: 0.8rem;
-      height: 0.1rem;
-      background-color: #6c757d;
-    }
+        .tree li::before {
+            content: '';
+            position: absolute;
+            top: 0.6rem;
+            left: -1rem;
+            width: 0.8rem;
+            height: 0.1rem;
+            background-color: #6c757d;
+        }
 
-    .toggle-icon {
-      cursor: pointer;
-      margin-right: 5px;
-      /* color: #0d6efd; */
-      font-weight: bold;
-    }
+        .toggle-icon {
+            cursor: pointer;
+            margin-right: 5px;
+            /* color: #0d6efd; */
+            font-weight: bold;
+        }
 
-    .category-link {
-      text-decoration: none;
-      color: #212529;
-    }
+        .category-link {
+            text-decoration: none;
+            color: #212529;
+        }
 
-    .category-link:hover {
-      text-decoration: underline;
-    }
-      </style>
-    <div class="tree">
+        .category-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    {{-- <div class="tree">
         <ul class="list-unstyled">
           <li>
             <span class="toggle-icon" data-bs-toggle="collapse" data-bs-target="#cat1"><i class="bi bi-caret-right-fill"></i></span>
@@ -82,7 +82,7 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div> --}}
     <section class="py-3 py-md-5">
 
 
@@ -113,14 +113,17 @@
                                 <div class="card-body border bg-white p-4">
                                     <div class="entry-header mb-3">
                                         <ul class="entry-meta list-unstyled d-flex mb-2 ">
-                                            <li>
+                                            @foreach ($post->categories as $cat)
+                                                <li>
+                                                    <a class="link-primary text-decoration-none me-2"
+                                                        href="/">{{ $cat->title }}</a>
+                                                </li>
+                                            @endforeach
+
+                                            {{-- <li>
                                                 <a class="link-primary text-decoration-none me-2"
                                                     href="#!">Business</a>
-                                            </li>
-                                            <li>
-                                                <a class="link-primary text-decoration-none me-2"
-                                                    href="#!">Business</a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                         <h2 class="card-title entry-title h4 mb-0">
                                             <a class="link-dark text-decoration-none"
