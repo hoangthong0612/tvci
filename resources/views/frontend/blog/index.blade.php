@@ -89,7 +89,7 @@
         <div class="container overflow-hidden">
             <div class="row gy-4 ">
                 @forelse ($posts as $post)
-                    <div class="col-12 col-lg-4">
+                    <div class="col-6 col-lg-4">
                         <article>
                             <div class="card border-0">
                                 <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover"

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -15,7 +16,7 @@ Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('i
 Route::get('/bai-viet', [\App\Http\Controllers\PageController::class, 'blog'])->name('blog');
 Route::get('/danh-muc/{slug}', [\App\Http\Controllers\PageController::class, 'category'])->name('category');
 Route::get('/bai-viet/{slug}', [\App\Http\Controllers\PageController::class, 'blogDetail'])->name('blogDetail');
-
+Route::get('/doi-tac-khach-hang', [\App\Http\Controllers\PageController::class, 'partners'])->name('partners');
 
 Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
@@ -28,4 +29,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('tags', TagController::class);
     Route::resource('setting', GeneralSettingController::class);
     Route::resource('menu', MenuController::class);
+    Route::resource('partners', PartnerController::class);
 });

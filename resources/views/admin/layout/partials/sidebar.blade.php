@@ -40,6 +40,11 @@
             <i class="fas fa-tags"></i>
             <span>Thẻ</span></a>
     </li>
+    <li class="nav-item {{ menuActive('admin.partners*') }}">
+        <a class="nav-link" href="{{ route('admin.partners.index') }}">
+            <i class="far fa-handshake"></i>
+            <span>Đối tác - Khách hàng</span></a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     {{-- <li class="nav-item">

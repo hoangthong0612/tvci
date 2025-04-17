@@ -121,6 +121,10 @@ function imagePath()
         // 'size' => '450x500',
         'thumb' => '310x350'
     ];
+    $data['partners'] = [
+        'path' => 'assets/images/partners',
+        // 'size' => '450x500',
+    ];
     return $data;
 }
 
@@ -146,7 +150,7 @@ function uploadImage($file, $location, $size = null, $old = null, $thumb = null)
 
     // Nếu có ảnh cũ thì xóa
     if ($old) {
-        removeFile(asset('content') . '/' . $location . '/' . $old);
+        removeFile($location . '/' . $old);
         removeFile(storage_path() . '/' . $location . '/thumb_' . $old);
     }
 
@@ -210,4 +214,13 @@ function get_datetime_vn($datetime)
 
     // Step 3: Display the converted time
     return $currentDateTime->format('H:i:s') . ' ngày ' . $currentDateTime->format('d/m/Y');
+}
+
+function getAllCategoryIds(Category $category, &$ids = [])
+{
+    $ids[] = $category->id;
+    foreach ($category->children as $child) {
+        getAllCategoryIds($child, $ids);
+    }
+    return $ids;
 }

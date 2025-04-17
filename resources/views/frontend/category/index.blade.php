@@ -86,71 +86,74 @@
     <section class="py-3 py-md-5">
 
 
-        <div class="container overflow-hidden">
+        <div class="container overflow-hidden service-details section position-relative">
             <div class="row gy-4 ">
-                @forelse ($posts as $post)
-                    <div class="col-12 col-lg-4">
-                        <article>
-                            <div class="card border-0">
-                                <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover"
-                                    style="height: 300px;box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
-                                    <a href="{{ route('blogDetail', $post->slug) }}">
-                                        <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
-                                            src="{{ $post->thumbnail ? '/' . imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}"
-                                            alt="Business">
-                                    </a>
-                                    <figcaption>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                            fill="currentColor" class="bi bi-eye text-white bsb-hover-fadeInLeft"
-                                            viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                            <path
-                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                        </svg>
-                                        <h4 class="h6 text-white bsb-hover-fadeInRight mt-2">Xem thêm</h4>
-                                    </figcaption>
-                                </figure>
-                                <div class="card-body border bg-white p-4">
-                                    <div class="entry-header mb-3">
-                                        <ul class="entry-meta list-unstyled d-flex mb-2 ">
-                                            @foreach ($post->categories as $cat)
-                                                <li>
-                                                    <a class="link-primary text-decoration-none me-2"
-                                                        href="{{ route('category', $cat->slug) }}">{{ $cat->title }}</a>
-                                                </li>
-                                            @endforeach
+                <div class=" col-12 col-lg-8">
+                    <div class="row">
+                        @forelse ($posts as $post)
+                            <div class="col-12 col-lg-6">
+                                <article>
+                                    <div class="card border-0">
+                                        <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover"
+                                            style="height: 300px;box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
+                                            <a href="{{ route('blogDetail', $post->slug) }}">
+                                                <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
+                                                    src="{{ $post->thumbnail ? '/' . imagePath()['blogs']['path'] . '/' . $post->thumbnail : getImage($post->thumbnail) }}"
+                                                    alt="Business">
+                                            </a>
+                                            <figcaption>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="currentColor" class="bi bi-eye text-white bsb-hover-fadeInLeft"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path
+                                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                                <h4 class="h6 text-white bsb-hover-fadeInRight mt-2">Xem thêm</h4>
+                                            </figcaption>
+                                        </figure>
+                                        <div class="card-body border bg-white p-4">
+                                            <div class="entry-header mb-3">
+                                                <ul class="entry-meta list-unstyled d-flex mb-2 ">
+                                                    @foreach ($post->categories as $cat)
+                                                        <li>
+                                                            <a class="link-primary text-decoration-none me-2"
+                                                                href="{{ route('category', $cat->slug) }}">{{ $cat->title }}</a>
+                                                        </li>
+                                                    @endforeach
 
-                                            {{-- <li>
+                                                    {{-- <li>
                                                 <a class="link-primary text-decoration-none me-2"
                                                     href="#!">Business</a>
                                             </li> --}}
-                                        </ul>
-                                        <h2 class="card-title entry-title h4 mb-0">
-                                            <a class="link-dark text-decoration-none"
-                                                href="{{ route('blogDetail', $post->slug) }}">{{ $post->title }}</a>
-                                        </h2>
-                                    </div>
-                                    <p class="card-text entry-summary text-secondary">
-                                        {{ $post->summary }}
-                                    </p>
-                                </div>
-                                <div class="card-footer border border-top-0 bg-white p-4">
-                                    <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
-                                        <li>
-                                            <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
-                                                href="#!">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                                    fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
-                                                    <path
-                                                        d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                                                </svg>
-                                                <span class="ms-2 fs-7">{{ $post->created_at->format('d/m/Y') }}</span>
-                                            </a>
-                                        </li>
-                                        {{-- <li>
+                                                </ul>
+                                                <h2 class="card-title entry-title h4 mb-0">
+                                                    <a class="link-dark text-decoration-none"
+                                                        href="{{ route('blogDetail', $post->slug) }}">{{ $post->title }}</a>
+                                                </h2>
+                                            </div>
+                                            <p class="card-text entry-summary text-secondary">
+                                                {{ $post->summary }}
+                                            </p>
+                                        </div>
+                                        <div class="card-footer border border-top-0 bg-white p-4">
+                                            <ul class="entry-meta list-unstyled d-flex align-items-center m-0">
+                                                <li>
+                                                    <a class="fs-7 link-secondary text-decoration-none d-flex align-items-center"
+                                                        href="#!">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14"
+                                                            height="14" fill="currentColor" class="bi bi-calendar3"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                                            <path
+                                                                d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                        </svg>
+                                                        <span class="ms-2 fs-7">{{ $post->created_at }}</span>
+                                                    </a>
+                                                </li>
+                                                {{-- <li>
                                             <span class="px-3">•</span>
                                         </li>
                                         <li>
@@ -166,20 +169,66 @@
                                                 <span class="ms-2 fs-7">55</span>
                                             </a>
                                         </li> --}}
-                                    </ul>
-                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </article>
+                        @empty
+                            <div class="col-12 text-center">
+                                Không có bài viết nào
+                            </div>
+                        @endforelse
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center">
+                                {{ $posts->links('admin.layout.partials.paginate') }}
+                            </div>
+                        </div>
                     </div>
-                @empty
-                    Không có tin tức nào
-                @endforelse
+
+                </div>
+                <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+
+                        <div class="service-box ">
+                            <h4>Danh mục con</h4>
+                            <div class="services-list">
+                                <div class="list-group">
+                                    @foreach ($subCategories as $category)
+                                        @include('frontend.category.category-tree', [
+                                            'category' => $category,
+                                        ])
+                                    @endforeach
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {{-- <div class="service-box">
+                            <h4>Download Catalog</h4>
+                            <div class="download-catalog">
+                                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>
+                                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>
+                            </div>
+                        </div> --}}
+
+                        <!-- End Services List -->
+
+                        {{-- <div class="help-box d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-headset help-icon"></i>
+                            <h4>Have a Question?</h4>
+                            <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>+1
+                                    5589
+                                    55488 55</span></p>
+                            <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <a
+                                    href="mailto:contact@example.com">contact@example.com</a></p>
+                        </div> --}}
+                    </div>
+                </div>
 
 
             </div>
         </div>
     </section>
-    <div class="d-flex justify-content-center">
-        {{ $posts->links('admin.layout.partials.paginate') }}
-    </div>
+
 @endsection
