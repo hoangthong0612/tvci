@@ -22,6 +22,12 @@
 
             <div class="row gy-5 ">
 
+
+
+                <div class="col-lg-8 ps-lg-5 blog-content" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+                    {!! $post->content !!}
+                </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="position-sticky" style="top: 100px;">
                         <div class="service-box ">
@@ -64,7 +70,7 @@
                                 <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>
                             </div>
                         </div> --}}
-                        
+
                         <!-- End Services List -->
 
                         {{-- <div class="help-box d-flex flex-column justify-content-center align-items-center">
@@ -77,11 +83,6 @@
                                     href="mailto:contact@example.com">contact@example.com</a></p>
                         </div> --}}
                     </div>
-                </div>
-
-                <div class="col-lg-8 ps-lg-5 blog-content" data-aos="fade-up" data-aos-delay="200">
-                    <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-                    {!! $post->content !!}
                 </div>
 
             </div>

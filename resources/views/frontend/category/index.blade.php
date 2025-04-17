@@ -16,44 +16,7 @@
             </nav>
         </div>
     </div><!-- End Page Title -->
-    <style>
-        .tree ul {
-            list-style-type: none;
-            position: relative;
-            padding-left: 1.2rem;
-        }
 
-        .tree li {
-            margin: 0.5rem 0;
-            position: relative;
-        }
-
-        .tree li::before {
-            content: '';
-            position: absolute;
-            top: 0.6rem;
-            left: -1rem;
-            width: 0.8rem;
-            height: 0.1rem;
-            background-color: #6c757d;
-        }
-
-        .toggle-icon {
-            cursor: pointer;
-            margin-right: 5px;
-            /* color: #0d6efd; */
-            font-weight: bold;
-        }
-
-        .category-link {
-            text-decoration: none;
-            color: #212529;
-        }
-
-        .category-link:hover {
-            text-decoration: underline;
-        }
-    </style>
     {{-- <div class="tree">
         <ul class="list-unstyled">
           <li>
@@ -179,11 +142,7 @@
                                 Không có bài viết nào
                             </div>
                         @endforelse
-                        <div class="col-12">
-                            <div class="d-flex justify-content-center">
-                                {{ $posts->links('admin.layout.partials.paginate') }}
-                            </div>
-                        </div>
+
                     </div>
 
                 </div>
@@ -230,5 +189,9 @@
             </div>
         </div>
     </section>
+    <div class="d-flex justify-content-center">
+        {{ $posts->links('admin.layout.partials.paginate') }}
+    </div>
+
 
 @endsection

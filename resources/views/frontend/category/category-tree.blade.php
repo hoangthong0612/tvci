@@ -1,6 +1,6 @@
 @push('style')
     <style>
-        .list-group-item {
+        .list-group-item1 {
             border: none;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
@@ -9,7 +9,7 @@
             margin-bottom: 4px;
         }
 
-        .list-group-item>.list-group {
+        .list-group-item1>.list-group1 {
             border-left: 2px solid #0d6efd;
             margin-top: 0.5rem;
             padding-left: 1rem;
@@ -17,7 +17,7 @@
     </style>
 @endpush
 
-<div class="list-group-item">
+<div class="list-group-item1">
     <div class="d-flex justify-content-between align-items-center">
         <div class="p-1">
             @if ($category->children->isNotEmpty())
@@ -33,7 +33,7 @@
 
     @if ($category->children->isNotEmpty())
         <div class="ms-3 mt-2">
-            <div class="list-group">
+            <div class="list-group1">
                 @foreach ($category->children as $child)
                     @include('frontend.category.category-tree', ['category' => $child])
                 @endforeach
